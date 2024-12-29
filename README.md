@@ -29,7 +29,7 @@ conda install conda-forge::pydub
 conda install ffmpeg
 python ./cue_sequence_generator.py
 python ./assemble_training.py
-python ./assemble_rem_cueing.py
+python ./assemble_rem_cueing.py -n [delay_minutes]
 ```
 
 Copy ```./out/lucid_dream_training.mp3``` and ```./out/rem_cueing.mp3``` to your media player.

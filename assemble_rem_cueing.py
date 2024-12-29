@@ -1,3 +1,4 @@
+import argparse
 from pydub import AudioSegment
 import random
 
@@ -23,6 +24,16 @@ def get_random_dBFS(min_dBFS, max_dBFS):
     return random.uniform(min_dBFS, max_dBFS)
 
 
+# Set up argument parser
+parser = argparse.ArgumentParser(description="Generate REM cueing sequence.")
+parser.add_argument(
+    "-n",
+    type=int,
+    default=10,
+    help="Number of minutes for the delay (default: 10 minutes).",
+)
+args = parser.parse_args()
+
 # Define the target dBFS range corresponding to 40-45 dB SPL
 min_target_dBFS = -25.0
 max_target_dBFS = -20.0
@@ -36,10 +47,12 @@ normalized_cue_sequence = normalize_volume(cue_sequence, random_target_dBFS)
 
 # Define new time intervals for the REM cueing sequence
 thirty_second_silence = AudioSegment.silent(duration=30 * 1000)  # 30 seconds
-ten_minute_silence = AudioSegment.silent(duration=10 * 60 * 1000)  # 10 minutes
+custom_minute_silence = AudioSegment.silent(
+    duration=args.n * 60 * 1000
+)  # Custom minutes
 
 # Create the REM cueing sequence
-rem_cueing_section = ten_minute_silence
+rem_cueing_section = custom_minute_silence
 for _ in range(5):  # Add normalized cues 5 times with 30-second intervals
     rem_cueing_section += normalized_cue_sequence + thirty_second_silence
 
