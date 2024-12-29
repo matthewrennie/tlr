@@ -16,7 +16,7 @@ Now we are going to practice becoming lucid. We want to train your mind to recog
 
 - Follow-up prompt
 ```
-As you notice the cue, you become lucid. Bring your attention to your thoughts, notice how your mind has wandered.<break time="3.5s" />Now observe your body, sensations, and feelings.<break time="3.5s" />Observe your breathing<break time="3.5s" />remain critically aware, lucid, and notice how aspects of this experience are in any way different from your normal waking experience.
+As you notice the cue, you become lucid. Bring your attention to your thoughts, notice how your mind has wandered.<break time="5s" />Now observe your body, sensations, and feelings.<break time="5s" />Observe your breathing<break time="5s" />remain critically aware, lucid, and notice how aspects of this experience are in any way different from your normal waking experience.
 ```
 
 ### Installation
