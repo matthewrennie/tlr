@@ -39,13 +39,16 @@ cue_sequence = normalize_volume(
 )
 
 # Define time intervals
+two_second_silence = AudioSegment.silent(duration=2 * 1000)  # 1 minute
 one_minute_silence = AudioSegment.silent(duration=60 * 1000)  # 1 minute
 longer_silence = AudioSegment.silent(duration=150 * 1000)  # 2.5 minutes
 
 # 1. Combine initial section (5 minutes with prompts)
-five_min_section = initial_prompt + one_minute_silence
+five_min_section = two_second_silence + initial_prompt + one_minute_silence
 for _ in range(5):  # Add cues + follow-up prompts 5 times
-    five_min_section += cue_sequence + follow_up_prompt + one_minute_silence
+    five_min_section += (
+        cue_sequence + two_second_silence + follow_up_prompt + one_minute_silence
+    )
 
 # 2. Create the 8-minute section (cues only every minute)
 eight_min_section = AudioSegment.empty()
